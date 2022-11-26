@@ -6,22 +6,21 @@ const avg = (sum / input.length).toFixed();
 const middle = input[parseInt(input.length/2)];
 let many = [];
 const hash = {};
-input.forEach(elem => {
-    if (hash[elem]) {
-        hash[elem] += 1;
-    } else {
-        hash[elem] = 1;
-    }
-});
-const many_max = Math.max(...Object.values(hash));
 
+input.forEach(elem => {
+    hash[elem] = (hash[elem] ?? 0) + 1
+});
+
+const manyMax = Math.max(...Object.values(hash));
 for (const key in hash) {
-    if (hash[key] === many_max) {
+    if (hash[key] === manyMax) {
         many.push(key);
     }
 }
+
 const many_res = many.map(Number).sort((a,b) => a-b)[1] ?? many.map(Number).sort((a,b) => a-b)[0];
 const range = Math.max(...input) - Math.min(...input);
+
 console.log(avg+'' === '-0' ? 0 : avg)
 console.log(middle)
 console.log(many_res)
