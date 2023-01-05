@@ -23,9 +23,5 @@ for (let i = 0; i < N; i++) {
   }
 }
 
-let length = stack.length;
-for (let i = 0; i < length; i++) {
-  str.push(stack.pop());
-}
-console.log(str.join(''));
+console.log([...str, ...stack.reverse()].join(''));
 
